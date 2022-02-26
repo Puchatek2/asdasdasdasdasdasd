@@ -1,4 +1,4 @@
-    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Puchatek2/adasdasdasd/main/mymine.lua"))()
     local Window = Library.CreateLib("Puchatek Script", "DarkTheme")
     
     local Credits = Window:NewTab("Credits")
@@ -62,36 +62,58 @@ end
         end
     end)
 
-    local Main = Window:NewTab("🥚 Eggs")
-    local MainSection = Main:NewSection("Eggs")
-    MainSection:NewToggle("Open Egg", "To open an egg click on the open egg", function(state)
-        if state then
-            _G.autohatch1 = true
-while _G.autohatch1 == false do
+local Main = Window:NewTab("Eggs")
+local MainSection = Main:NewSection("Eggs")
+MainSection:NewToggle("Open Egg", "To open an egg click on the open egg", function(state)
+    if state then
+        getgenv().Start = true
+
+while wait(0) and getgenv().Start do
+    
 local args = {
-    [1] = "Atlantis",
-    [2] = "Single"
+    [1] = "Cyber",
+    [2] = "Triple"
 }
 
 game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
-
-
-workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-wait()
 end
-
     else
-        _G.autohatch1 = false
-        while _G.autohatch1 == true do
-            local args = {
-            [1] = {
-                [1] = "Hacker Egg",
-                [2] = true
-            }
+        getgenv().Start = false
+
+while wait(0) and getgenv().Start do
+    
+local args = {
+    [1] = "Cyber",
+    [2] = "Triple"
+}
+
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end
+    end
+end)
+local MainSection = Main:NewSection("TOXIC/GOLDEN")
+MainSection:NewToggle("TOXIC/GOLDEN", "TOXIC/GOLDEN", function(state)
+    if state then
+        getgenv().Start = true
+
+while wait(0) and getgenv().Start do
+local args = {
+    [1] = "CraftAll",
+    [2] = {}
+}
+
+game:GetService("ReplicatedStorage").Functions.Request:InvokeServer(unpack(args))
+end
+    else
+        getgenv().Start = false
+
+        while wait(0) and getgenv().Start do
+        local args = {
+            [1] = "CraftAll",
+            [2] = {}
         }
         
-        workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-        wait()
+        game:GetService("ReplicatedStorage").Functions.Request:InvokeServer(unpack(args))
         end
     end
 end)
